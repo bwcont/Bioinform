@@ -30,7 +30,7 @@ MLB_CB3 <- MLB_CB3[43:29374,]
 MLB_CB5 <- MLB_CB5[43:29374,]
 ETP_Thy1 <- ETP_Thy1[43:29374,]
 ETP_Thy2 <- ETP_Thy2[43:29374,]
-ETP_Thy3 <- ETP_Thy2[43:29374,]
+ETP_Thy3 <- ETP_Thy3[43:29374,]
 
 ### Testing my organization methods with one set of cells first####
 
@@ -44,20 +44,44 @@ test.same <- as.character(combined.HSC[,1]) == as.character(combined.HSC[,4]) &
 test.same <- as.data.frame(test.same)
 test.same[test.same[,1] == FALSE,]
 #All the values are ordered in the same way 
-
-### Renaming####
-
-combined.HSC <- combined.HSC[,c(1,2,3,5,6,8,9,11,12,14,15)] #Remove redundant names
-colnames(combined.HSC) <- c("ID_REF", 
-                            'HSC1_CB1_VALUE','HSC1_CB1_pval',
-                            'HSC1_CB2_VALUE','HSC1_CB2_pval',
-                            'HSC1_CB3_VALUE','HSC1_CB3_pval',
-                            'HSC1_CB4_VALUE','HSC1_CB4_pval',
-                            'HSC1_CB5_VALUE','HSC1_CB5_pval')
-combined.HSC <-as.data.frame(combined.HSC)
-combined.HSC <- combined.HSC[-1,] #remove top redundant row
+remove(combined.HSC, test.same)
 
 
-#####
+### Go back to the data sets and removing low quality reads####
+HSC1_CB1 <- HSC1_CB1[-1,]
+colnames(HSC1_CB1) <- c("GeneID","VALUE","QCpval")
+
+HSC1_CB2 <- HSC1_CB2[-1,]
+HSC1_CB3 <- HSC1_CB3[-1,]
+HSC1_CB4 <- HSC1_CB4[-1,]
+HSC1_CB5 <- HSC1_CB5[-1,]
+MLB_CB1 <- MLB_CB1[-1,]
+MLB_CB2 <- MLB_CB2[-1,]
+MLB_CB3 <- MLB_CB3[-1,]
+MLB_CB5 <- MLB_CB5[-1,]
+ETP_Thy1 <- ETP_Thy1[-1,]
+ETP_Thy2 <- ETP_Thy2[-1,]
+ETP_Thy3 <- ETP_Thy3[-1,]
+
+colnames(HSC1_CB2) <- c("GeneID","VALUE","QCpval")
+colnames(HSC1_CB3) <- c("GeneID","VALUE","QCpval")
+colnames(HSC1_CB4) <- c("GeneID","VALUE","QCpval")
+colnames(HSC1_CB5) <- c("GeneID","VALUE","QCpval")
+colnames(MLB_CB1) <- c("GeneID","VALUE","QCpval")
+colnames(MLB_CB2) <- c("GeneID","VALUE","QCpval")
+colnames(MLB_CB3) <- c("GeneID","VALUE","QCpval")
+colnames(MLB_CB5) <- c("GeneID","VALUE","QCpval")
+colnames(ETP_Thy1) <- c("GeneID","VALUE","QCpval")
+colnames(ETP_Thy2) <- c("GeneID","VALUE","QCpval")
+colnames(ETP_Thy3) <- c("GeneID","VALUE","QCpval")
+
+
+
+
+
+###limma() browseVignettes("limma")##
+
+
+
 
 
