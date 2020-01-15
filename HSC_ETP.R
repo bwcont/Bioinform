@@ -75,17 +75,72 @@ colnames(ETP_Thy1) <- c("GeneID","VALUE","QCpval")
 colnames(ETP_Thy2) <- c("GeneID","VALUE","QCpval")
 colnames(ETP_Thy3) <- c("GeneID","VALUE","QCpval")
 
-#ETP_Thy1
+#ETPs
+ETP_Thy1$VALUES <- NA
+for (i in 1:29331) {
+  ifelse(
+    as.numeric(as.character(ETP_Thy1$QCpval[i]))> 0.05,
+    ETP_Thy1[i,4] <- NA, 
+    ETP_Thy1[i,4] <- as.numeric(as.character(ETP_Thy1[i,2]))
+    )
+}
 
-for (i in length(ETP_Thy1$VALUE)) {
-  if (as.numeric(as.character(ETP_Thy1$QCpval))  > 0.05) {
-    ETP_Thy1[i,2]
-  }
+ETP_Thy2$VALUES <- NA
+for (i in 1:29331) {
+  ifelse(
+    as.numeric(as.character(ETP_Thy2$QCpval[i]))> 0.05,
+    ETP_Thy2[i,4] <- NA, 
+    ETP_Thy2[i,4] <- as.numeric(as.character(ETP_Thy2[i,2]))
+  )
+}
+
+ETP_Thy3$VALUES <- NA
+for (i in 1:29331) {
+  ifelse(
+    as.numeric(as.character(ETP_Thy3$QCpval[i]))> 0.05,
+    ETP_Thy3[i,4] <- NA, 
+    ETP_Thy3[i,4] <- as.numeric(as.character(ETP_Thy3[i,2]))
+  )
+}
+#MLB
+MLB_CB1$VALUES <- NA
+for (i in 1:29331) {
+  ifelse(
+    as.numeric(as.character(MLB_CB1$QCpval[i]))> 0.05,
+    MLB_CB1[i,4] <- NA, 
+    MLB_CB1[i,4] <- as.numeric(as.character(MLB_CB1[i,2]))
+  )
+}
+
+MLB_CB2$VALUES <- NA
+for (i in 1:29331) {
+  ifelse(
+    as.numeric(as.character(MLB_CB2$QCpval[i]))> 0.05,
+    MLB_CB2[i,4] <- NA, 
+    MLB_CB2[i,4] <- as.numeric(as.character(MLB_CB2[i,2]))
+  )
+}
+
+MLB_CB3$VALUES <- NA
+for (i in 1:29331) {
+  ifelse(
+    as.numeric(as.character(MLB_CB3$QCpval[i]))> 0.05,
+    MLB_CB3[i,4] <- NA, 
+    MLB_CB3[i,4] <- as.numeric(as.character(MLB_CB3[i,2]))
+  )
+}
+
+MLB_CB5$VALUES <- NA
+for (i in 1:29331) {
+  ifelse(
+    as.numeric(as.character(MLB_CB5$QCpval[i]))> 0.05,
+    MLB_CB5[i,4] <- NA, 
+    MLB_CB5[i,4] <- as.numeric(as.character(MLB_CB5[i,2]))
+  )
 }
 
 
 
-###limma() browseVignettes("limma")##
 
 
 
