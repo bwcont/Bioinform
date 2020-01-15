@@ -75,7 +75,13 @@ colnames(ETP_Thy1) <- c("GeneID","VALUE","QCpval")
 colnames(ETP_Thy2) <- c("GeneID","VALUE","QCpval")
 colnames(ETP_Thy3) <- c("GeneID","VALUE","QCpval")
 
+#ETP_Thy1
 
+for (i in length(ETP_Thy1$VALUE)) {
+  if (as.numeric(as.character(ETP_Thy1$QCpval))  > 0.05) {
+    ETP_Thy1[i,2]
+  }
+}
 
 
 
