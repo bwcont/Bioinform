@@ -243,5 +243,21 @@ mat.ETP.MLP <- as.data.frame(mat.ETP.MLP)
 
 write.table(mat.ETP.MLP, "~/Documents/Bioinformatics/LaurentiMicroArray/matrixFilter.txt", sep="\t")
 
+####Looking for ID2 and E2A (Tcf3) 
+#ID2 = NM_002166; E2A = NM_003200 & NM_001136139
 
+####
+
+index <- data.frame()
+
+for (i in 1:33978) {
+  probe_seq_name <- xx[i]
+  probe_seq_name <- t(as.data.frame(probe_seq_name))
+  if (is.null(probe_seq_name) == FALSE) {
+    foo <- c(probe_seq_name, row.names(probe_seq_name) )
+    index <- rbind(foo, index)
+  }
+  remove(probe_seq_name, current.probe)
+  
+} 
 
