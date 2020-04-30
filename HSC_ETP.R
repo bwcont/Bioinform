@@ -225,28 +225,10 @@ for (z in 1:29331) {
 }
 remove(numF1, numF2, z, numL1, numL2, ETP.avg, MLP.avg)
 
-#Wilcox test to calculate for each gene between EPT and MLP
-mat.ETP.MLP$pval.ETP.MLP <- NA
-for (w in 2:29331) {
-  ETP.group <- c(mat.ETP.MLP$ETP1[w], mat.ETP.MLP$ETP2[w], mat.ETP.MLP$ETP3[w]) 
-  MLP.group <- c(mat.ETP.MLP$MLP1[w], mat.ETP.MLP$MLP2[w], mat.ETP.MLP$MLP3[w], mat.ETP.MLP$MLP5[w])
-  standin <- NA
-  ETP.NA <- is.na( ETP.group)
-  MLP.NA <- is.na( MLP.group)
-  ETP.NA <- as.numeric(length(ETP.NA[ETP.NA == FALSE]))
-  MLP.NA <- as.numeric(length(MLP.NA[MLP.NA == FALSE]))
-  standin <- ifelse(test = ETP.NA > 0 & MLP.NA > 1, yes = (wilcox.test(ETP.group, MLP.group)[3]), no = NA)
-  mat.ETP.MLP$pval.ETP.MLP[w] <- standin
-}
-
-mat.ETP.MLP <- as.data.frame(mat.ETP.MLP)
-
-write.table(mat.ETP.MLP, "~/Documents/Bioinformatics/LaurentiMicroArray/matrixFilter.txt", sep="\t")
-
 ####Looking for ID2 and E2A (Tcf3) 
 #ID2 = NM_002166; E2A = NM_003200 & NM_001136139
 
-####
+####Extract Probe IDs###
 
 index <- data.frame()
 
